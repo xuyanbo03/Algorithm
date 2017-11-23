@@ -1,7 +1,19 @@
 #include <iostream>
+#include <cstdio>
+using namespace std;
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+#define ll long long 
 
-int main(int argc, char** argv) {
+int main(){
+	ll i,ans;
+	ll n,m;
+	while(scanf("%lld %lld",&n,&m)!=EOF){
+		ans=1;
+		for(i=n;i>0;i--){
+			ans=ans*i;
+			ans%=m;	
+		}
+		cout<<ans<<endl;
+	}
 	return 0;
 }
