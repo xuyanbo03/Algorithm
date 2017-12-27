@@ -1,0 +1,18 @@
+Determining if the C compiler works failed with the following output:
+Change Dir: H:/CODE/gitproject/Algorithm/编译原理/dfa/cmake-build-default/CMakeFiles/CMakeTmp
+
+Run Build Command:"D:/Code/Dev-Cpp/MinGW64/bin/mingw32-make.exe" "cmTC_c9420/fast"
+D:/Code/Dev-Cpp/MinGW64/bin/mingw32-make.exe -f CMakeFiles\cmTC_c9420.dir\build.make CMakeFiles/cmTC_c9420.dir/build
+mingw32-make.exe[1]: Entering directory 'H:/CODE/gitproject/Algorithm/编译原理/dfa/cmake-build-default/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c9420.dir/testCCompiler.c.obj
+D:\Code\Dev-Cpp\MinGW64\bin\gcc.exe    -o CMakeFiles\cmTC_c9420.dir\testCCompiler.c.obj   -c H:\CODE\gitproject\Algorithm\缂栬瘧鍘熺悊\dfa\cmake-build-default\CMakeFiles\CMakeTmp\testCCompiler.c
+gcc.exe: error: H:\CODE\gitproject\Algorithm\缂栬瘧鍘熺悊\dfa\cmake-build-default\CMakeFiles\CMakeTmp\testCCompiler.c: No such file or directory
+gcc.exe: fatal error: no input files
+compilation terminated.
+CMakeFiles\cmTC_c9420.dir\build.make:64: recipe for target 'CMakeFiles/cmTC_c9420.dir/testCCompiler.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_c9420.dir/testCCompiler.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'H:/CODE/gitproject/Algorithm/编译原理/dfa/cmake-build-default/CMakeFiles/CMakeTmp'
+Makefile:125: recipe for target 'cmTC_c9420/fast' failed
+mingw32-make.exe: *** [cmTC_c9420/fast] Error 2
+
+
