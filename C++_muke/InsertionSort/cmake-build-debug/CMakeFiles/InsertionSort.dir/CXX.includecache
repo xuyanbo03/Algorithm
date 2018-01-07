@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/awebone/miniwork/project/Algorithm/C++_muke/InsertionSort/SelectionSort.h
+iostream
+-
+algorithm
+-
+SortTestHelper.h
+/Users/awebone/miniwork/project/Algorithm/C++_muke/InsertionSort/SortTestHelper.h
+
+/Users/awebone/miniwork/project/Algorithm/C++_muke/InsertionSort/SortTestHelper.h
+iostream
+-
+ctime
+-
+cassert
+-
+
+/Users/awebone/miniwork/project/Algorithm/C++_muke/InsertionSort/main.cpp
+iostream
+-
+algorithm
+-
+SortTestHelper.h
+/Users/awebone/miniwork/project/Algorithm/C++_muke/InsertionSort/SortTestHelper.h
+SelectionSort.h
+/Users/awebone/miniwork/project/Algorithm/C++_muke/InsertionSort/SelectionSort.h
+
