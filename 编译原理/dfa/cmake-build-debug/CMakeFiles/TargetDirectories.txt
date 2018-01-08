@@ -1,3 +1,0 @@
-/Users/awebone/miniwork/byyl/dfa/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/awebone/miniwork/byyl/dfa/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/awebone/miniwork/byyl/dfa/cmake-build-debug/CMakeFiles/dfa.dir
