@@ -1,9 +1,5 @@
-//
-// Created by X_Sword on 2017/10/23.
-//
-
-#ifndef SELECTIONSORTS_STUDENT_H
-#define SELECTIONSORTS_STUDENT_H
+#ifndef SELECTIONSORTS_SELECTIONSORT_H
+#define SELECTIONSORTS_SELECTIONSORT_H
 
 #include<iostream>
 #include<string>
@@ -24,4 +20,4 @@ struct Student {
     }
 };
 
-#endif //SELECTIONSORTS_STUDENT_H
+#endif //SELECTIONSORTS_SELECTIONSORT_H

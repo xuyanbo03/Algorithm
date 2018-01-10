@@ -1,5 +1,5 @@
-#ifndef SELECTIONSORTS_SELECTIONSORT_H
-#define SELECTIONSORTS_SELECTIONSORT_H
+#ifndef MERGESORTS_MERGESORT_H
+#define MERGESORTS_MERGESORT_H
 
 #include<iostream>
 #include<ctime>
@@ -18,6 +18,21 @@ namespace SortTestHelper {
             arr[i] = rand() % (rangeR - rangeL + 1) + rangeL;
         }
         return arr;
+    }
+
+    //生成一个几乎有序的随机数组
+    int *generateNearlyOrderedArray(int n,int swapTimes){
+        int *arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=i;
+        }
+        srand(time(NULL));
+        for(int i=0;i<swapTimes;i++){
+            int posx=rand()%n;
+            int posy=rand()%n;
+            swap(arr[posx],arr[posy]);
+        }
+        return  arr;
     }
 
     //打印排序后的数组
@@ -56,6 +71,13 @@ namespace SortTestHelper {
 
         return;
     }
+
+    //拷贝int数组
+    int* copyIntArray(int a[],int n){
+        int* arr=new int[n];
+        copy(a,a+n,arr);
+        return arr;
+    }
 }
 
-#endif //SELECTIONSORTS_SELECTIONSORT_H
+#endif //MERGESORTS_MERGESORT_H

@@ -1,7 +1,3 @@
-//
-// Created by X_Sword on 2017/10/23.
-//
-
 #ifndef SELECTIONSORTS_SELECTIONSORT_H
 #define SELECTIONSORTS_SELECTIONSORT_H
 
