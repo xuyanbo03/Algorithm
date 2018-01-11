@@ -3,5 +3,5 @@ project(MergeSort)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp MergeSort.h)
+set(SOURCE_FILES main.cpp MergeSort.h SortTestHelper.h InsertionSort.h)
 add_executable(MergeSort ${SOURCE_FILES})

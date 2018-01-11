@@ -3,5 +3,5 @@ project(InsertionSort)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp SelectionSort.h SortTestHelper.h)
 add_executable(InsertionSort ${SOURCE_FILES})
