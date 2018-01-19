@@ -3,5 +3,5 @@ project(MinimumSpanTree)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp DenseGraph.h SparseGraph.h ReadGraph.h LazyPrimMST.h Edge.h MinHeap.h PrimMST.h IndexMinHeap.h)
+set(SOURCE_FILES main.cpp DenseGraph.h SparseGraph.h ReadGraph.h LazyPrimMST.h Edge.h MinHeap.h PrimMST.h IndexMinHeap.h UnionFind.h KruskalMST.h)
 add_executable(MinimumSpanTree ${SOURCE_FILES})
