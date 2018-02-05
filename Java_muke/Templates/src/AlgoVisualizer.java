@@ -9,6 +9,7 @@ public class AlgoVisualizer {
     //TODO：创建自己的数据
     private Object data;//数据
     private AlgoFrame frame;//视图
+	private static int DELAY = 40;
 
     public AlgoVisualizer(int sceneWidth, int sceneHeight) {
         //数据初始化
@@ -31,6 +32,15 @@ public class AlgoVisualizer {
     private void run() {
         //动画逻辑
         //TODO:编写逻辑
+    }
+	
+	private void setData(int orderedIndex, int currentCompareIndex, int currentMinIndex) {
+        data.orderedIndex = orderedIndex;
+        data.currentCompareIndex = currentCompareIndex;
+        data.currentMinIndex = currentMinIndex;
+
+        frame.render(data);
+        AlgoVisHelper.pause(DELAY);
     }
 
     //TODO:根据情况决定是否实现键盘鼠标等交互事件监听器
