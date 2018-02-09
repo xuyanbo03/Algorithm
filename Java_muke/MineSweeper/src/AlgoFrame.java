@@ -32,9 +32,9 @@ public class AlgoFrame extends JFrame {
         return canvasHeight;
     }
 
-    private MazeData data;
+    private MineSweeperData data;
 
-    public void render(MazeData data) {
+    public void render(MineSweeperData data) {
         this.data = data;
         repaint();
     }
@@ -59,19 +59,19 @@ public class AlgoFrame extends JFrame {
             int h = canvasHeight / data.N();
             for (int i = 0; i < data.N(); i++) {
                 for (int j = 0; j < data.M(); j++) {
-                    if (data.inMist[i][j]) {
-                        AlgoVisHelper.setColor(g2d, AlgoVisHelper.Black);
-                    } else {
-                        if (data.getMaze(i, j) == MazeData.WALL) {
-                            AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
+                    if (data.open[i][j]) {
+                        if (data.isMine(i, j)) {
+                            AlgoVisHelper.putImage(g2d, j * w, i * h, MineSweeperData.mineImageURL);
                         } else {
-                            AlgoVisHelper.setColor(g2d, AlgoVisHelper.White);
+                            AlgoVisHelper.putImage(g2d, j * w, i * h, MineSweeperData.numberImageURL(data.getNumbers(i, j)));
                         }
-                        if (data.path[i][j]) {
-                            AlgoVisHelper.setColor(g2d, AlgoVisHelper.Yellow);
+                    } else {
+                        if (data.flags[i][j]){
+                            AlgoVisHelper.putImage(g2d, j * w, i * h, MineSweeperData.flagImageURL);
+                        } else{
+                            AlgoVisHelper.putImage(g2d, j * w, i * h, MineSweeperData.blockImageURL);
                         }
                     }
-                    AlgoVisHelper.fillRectangle(g2d, j * w, i * h, w, h);
                 }
             }
         }

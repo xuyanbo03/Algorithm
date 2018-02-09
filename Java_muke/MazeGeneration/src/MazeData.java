@@ -5,8 +5,8 @@ public class MazeData {
     private int N, M;
     public char[][] maze;
     public boolean[][] visited;
+    public boolean[][] inMist;
     public boolean[][] path;
-    public boolean[][] result;
 
     private int entranceX, entranceY;
     private int exitX, exitY;
@@ -20,8 +20,8 @@ public class MazeData {
 
         maze = new char[N][M];
         visited = new boolean[N][M];
+        inMist = new boolean[N][M];
         path = new boolean[N][M];
-        result = new boolean[N][M];
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 if (i % 2 == 1 && j % 2 == 1) {
@@ -30,8 +30,8 @@ public class MazeData {
                     maze[i][j] = WALL;
                 }
                 visited[i][j] = false;
+                inMist[i][j] = true;
                 path[i][j] = false;
-                result[i][j] = false;
             }
         }
         entranceX = 1;
@@ -75,6 +75,20 @@ public class MazeData {
 
     public boolean inArea(int x, int y) {
         return x >= 0 && x < N && y >= 0 && y < M;
+    }
+
+    public void openMist(int x, int y) {
+        if (!inArea(x, y)) {
+            throw new IllegalArgumentException("x or y is out of index in getMaze");
+        }
+        for (int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                if (inArea(i, j)) {
+                    inMist[i][j] = false;
+                }
+            }
+        }
+        return;
     }
 
     public void print() {
