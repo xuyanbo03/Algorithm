@@ -4,6 +4,8 @@
 #include <vector>
 #include <stack>
 #include <queue>
+#include <unordered_map>
+#include <stdexcept>
 
 using namespace std;
 
@@ -173,6 +175,83 @@ public:
         }
         return res;
     }
+
+
+    //279. Perfect Squares寻找最少的完全平方数
+    //思路：对问题建模，先转换为图论问题，再求解最短路径
+public:
+    int numSquares(int n) {
+        assert(n > 0);
+        queue<pair<int, int> > q;
+        q.push(make_pair(n, 0));
+        vector<bool> visited(n + 1, false);
+        visited[n] = true;
+
+        while (!q.empty()) {
+            int num = q.front().first;
+            int step = q.front().second;
+            q.pop();
+
+//            if (num == 0) {
+//                return step;
+//            }
+//            for (int i = 1; num - i * i >= 0; i++) {
+//                if (!visited[num - i * i]) {
+//                    q.push(make_pair(num - i * i, step + 1));
+//                    visited[num - i * i] = true;
+//                }
+//            }
+            for (int i = 1;; i++) {
+                int a = num - i * i;
+                if (a < 0) {
+                    break;
+                }
+                if (a == 0) {
+                    return step + 1;
+                }
+                if (!visited[a]) {
+                    q.push(make_pair(a, step + 1));
+                    visited[a] = true;
+                }
+            }
+        }
+    }
+
+
+    //347. Top K Frequent Elements
+    //解法1：扫描一遍统计频率，排序找到前k个出现频率最高的元素
+    //解法2：维护一个含有k个元素的优先队列。如果遍历到的元素比队列中的最小频率元素的频率高，则取出队列中最小频率的元素，将新元素入队。最终，队列剩下的就是前k个出现频率最高的元素。
+public:
+    vector<int> topKFrequent(vector<int> &nums, int k) {
+        assert(k > 0);
+        //统计每个元素出现的频率
+        unordered_map<int, int> freq;
+        for (int i = 0; i < nums.size(); i++) {
+            freq[nums[i]]++;
+        }
+        assert(k <= freq.size());
+
+        //扫描freq，维护当前出现频率最高的k个元素
+        //在优先队列中，按照频率排序，所以数据对是(频率，元素)的形式
+        priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > pq;
+        for (unordered_map<int, int>::iterator iter = freq.begin(); iter != freq.end(); iter++) {
+            if (pq.size() == k) {
+                if (iter->second > pq.top().first) {
+                    pq.pop();
+                    pq.push(make_pair(iter->second, iter->first));
+                }
+            } else {
+                pq.push(make_pair(iter->second, iter->first));
+            }
+        }
+
+        vector<int> res;
+        while (!pq.empty()) {
+            res.push_back(pq.top().second);
+            pq.pop();
+        }
+        return res;
+    }
 };
 
 int main() {
@@ -197,8 +276,27 @@ int main() {
  * 3.队列的基本应用，广度优先遍历
  * - 树，层序遍历
  * - 图，无权图的最短路径
+ *
+ * 树的广度优先遍历，层序遍历
  * 102二叉树的层序遍历
  * 107
  * 103
  * 199
+ *
+ * BFS和图的最短路径
+ * 279
+ * 127
+ * 126
+ *
+ * 4.优先队列:堆
+ * - C++中STL中priority queue默认情况下为最大堆priority_queue<int> pq;
+ * - 使用最小堆：priority_queue<int,vector<int>,greater<int> > pq;
+ * - 使用自定义Comparator的priority queue：priority_queue<int,vector<int>,function<bool(int,int)> > pq(myCmp);
+ * bool myCmp(int a, int b) {
+ *   return a % 10 > b % 10;
+ * }
+ *
+ * 347
+ * 23 k分归并排序
+ *
  * */
