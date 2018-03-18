@@ -19,7 +19,8 @@ int main(){
 	cin>>n>>m;
 	getchar();
 	for(int i=1;i<=n;i++){
-		getline(cin,temp);
+		getline(cin,temp)
+		;
 		tv.push_back(temp);
 	}
 	for(int i=1;i<=m;i++){
