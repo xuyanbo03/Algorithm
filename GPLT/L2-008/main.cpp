@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string>i-j
+#include<string>
 using namespace std;
 
 int main(){
